@@ -1,6 +1,6 @@
 const {createSuite, runSuite} = require('../utils/benchmarkify');
 
-const suite = createSuite('array-to-string', {minSamples: 100000});
+const suite = createSuite('array-to-string-with-filter', {minSamples: 100000});
 const arr = new Array(100).fill(0).map(item => {
     return Math.random() > 0.5 ? undefined : Math.random();
 });
