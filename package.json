@@ -1,0 +1,24 @@
+{
+  "name": "javascript-benchmark",
+  "version": "1.0.0",
+  "description": "javascript benchmark",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meixg/javascript-benchmark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meixg/javascript-benchmark/issues"
+  },
+  "homepage": "https://github.com/meixg/javascript-benchmark#readme",
+  "dependencies": {
+    "benchmarkify": "^3.0.0"
+  }
+}
