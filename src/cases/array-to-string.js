@@ -14,6 +14,10 @@ suite.add('map + join', () => {
     const res = arr.map(item => item + '-' + item).join('');
 });
 
+suite.add('reduce', () => {
+    const res = arr.reduce((acc, item) => acc + item + '-' + item, '');
+});
+
 setTimeout(() => {
     runSuite(suite);
 }, 0);

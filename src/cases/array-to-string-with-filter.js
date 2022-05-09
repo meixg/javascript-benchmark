@@ -21,6 +21,10 @@ suite.add('filter + join', () => {
     const res = arr.filter(item => item !== undefined).join(',');
 });
 
+suite.add('reduce', () => {
+    const res = arr.reduce((acc, item) => item !== undefined ? acc + ',' + item : acc, '');
+});
+
 setTimeout(() => {
     runSuite(suite);
 }, 0);
