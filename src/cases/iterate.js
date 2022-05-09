@@ -1,6 +1,6 @@
 const {createSuite} = require('../utils/benchmarkify');
 
-const suite = createSuite('for...in vs for...of');
+const suite = createSuite('for...in vs for...of', {minSamples: 1000000});
 const arr = new Array(100).fill(0);
 
 suite.add('for...in', () => {
