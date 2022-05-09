@@ -9,9 +9,9 @@ function createBenchmarkify() {
 }
 
 let suiteNumber = 0;
-function createSuite(name) {
+function createSuite(name, options = {}) {
     const benchmark = createBenchmarkify();
-    const bench = benchmark.createSuite(name, {time: 100, minSamples: 100});
+    const bench = benchmark.createSuite(name, Object.assign({time: 100, minSamples: 100}, options));
     suiteNumber++;
     return bench;
 }

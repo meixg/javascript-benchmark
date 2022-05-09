@@ -1,1 +1,1 @@
-require('./cases/forin-vs-forof');
+require('./cases/iterate');

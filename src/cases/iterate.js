@@ -15,4 +15,8 @@ suite.add('for...of', () => {
     }
 });
 
+suite.add('.forEach', () => {
+    arr.forEach(a => {});
+});
+
 suite.run();
