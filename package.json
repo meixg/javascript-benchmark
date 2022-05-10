@@ -4,7 +4,7 @@
   "description": "javascript benchmark",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/run.js cases",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
