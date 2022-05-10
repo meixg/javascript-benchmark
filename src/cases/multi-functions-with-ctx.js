@@ -6,31 +6,31 @@ const bench = common.createBenchmark(main, {
 });
 
 function aaa(ctx) {
-    return 'a' + ctx.slots.bbb(ctx) + ctx.data.a;
+    return 'a' + ctx.slots.bbb() + ctx.data.a;
 }
 function bbb(ctx) {
-    return 'b' + ctx.slots.ccc(ctx) + ctx.data.a;
+    return 'b' + ctx.slots.ccc() + ctx.data.a;
 }
 function ccc(ctx) {
-    return 'c' + ctx.slots.ddd(ctx) + ctx.data.a;
+    return 'c' + ctx.slots.ddd() + ctx.data.a;
 }
 function ddd(ctx) {
-    return 'd' + ctx.slots.eee(ctx) + ctx.data.a;
+    return 'd' + ctx.slots.eee() + ctx.data.a;
 }
 function eee(ctx) {
-    return 'e' + ctx.slots.fff(ctx) + ctx.data.a;
+    return 'e' + ctx.slots.fff() + ctx.data.a;
 }
 function fff(ctx) {
-    return 'f' + ctx.slots.ggg(ctx) + ctx.data.a;
+    return 'f' + ctx.slots.ggg() + ctx.data.a;
 }
 function ggg(ctx) {
-    return 'g' + ctx.slots.hhh(ctx) + ctx.data.a;
+    return 'g' + ctx.slots.hhh() + ctx.data.a;
 }
 function hhh(ctx) {
-    return 'h' + ctx.slots.iii(ctx) + ctx.data.a;
+    return 'h' + ctx.slots.iii() + ctx.data.a;
 }
 function iii(ctx) {
-    return 'i' + ctx.slots.jjj(ctx) + ctx.data.a;
+    return 'i' + ctx.slots.jjj() + ctx.data.a;
 }
 function jjj(ctx) {
     return 'j' + ctx.data.a;
@@ -86,15 +86,15 @@ function main({ type, n }) {
                 };
                 const slots = {
                     aaa: aaa.bind(undefined, ctx),
-                    bbb: bbb,
-                    ccc: ccc,
-                    ddd: ddd,
-                    eee: eee,
-                    fff: fff,
-                    ggg: ggg,
-                    hhh: hhh,
-                    iii: iii,
-                    jjj: jjj
+                    bbb: bbb.bind(undefined, ctx),
+                    ccc: ccc.bind(undefined, ctx),
+                    ddd: ddd.bind(undefined, ctx),
+                    eee: eee.bind(undefined, ctx),
+                    fff: fff.bind(undefined, ctx),
+                    ggg: ggg.bind(undefined, ctx),
+                    hhh: hhh.bind(undefined, ctx),
+                    iii: iii.bind(undefined, ctx),
+                    jjj: jjj.bind(undefined, ctx)
                 }
                 ctx.slots = slots;
                 const res = ctx.slots.aaa();
