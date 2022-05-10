@@ -1,6 +1,9 @@
-const {createSuite, runSuite} = require('../utils/benchmarkify');
+const common = require('../utils/common');
 
-const suite = createSuite('multi-functions', {minSamples: 1000000});
+const bench = common.createBenchmark(main, {
+    n: [1e8],
+    type: ['plain', 'nested']
+});
 
 function aaa() {
     return 'a';
@@ -64,14 +67,22 @@ function aa() {
 
     return 'a' + bb();
 }
-suite.add('plain', () => {
-    const res = aaa() + bbb() + ccc() + ddd() + eee() + fff() + ggg() + hhh() + iii() + jjj();
-});
 
-suite.add('nested', () => {
-    const res = aa();
-});
-
-setTimeout(() => {
-    runSuite(suite);
-}, 0);
+function main({ type, n }) {
+    switch (type) {
+        case 'nested':
+            bench.start();
+            for (let i = 0; i < n; i++) {
+                const res = aa();
+            }
+            bench.end(n);
+            break;
+        case 'plain':
+            bench.start();
+            for (let i = 0; i < n; i++) {
+                const res = aaa() + bbb() + ccc() + ddd() + eee() + fff() + ggg() + hhh() + iii() + jjj();
+            }
+            bench.end(n);
+            break;
+    }
+}

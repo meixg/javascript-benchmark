@@ -1,35 +1,38 @@
 const common = require('../utils/common');
 
 const bench = common.createBenchmark(main, {
-    n: [1e5],
-    type: ['for iterate', 'map + join', 'reduce']
+    n: [1e8],
+    type: ['create', 'reference obj property', 'plain reference']
 });
 
-const arr = new Array(100).fill(0).map(item => Math.random());
+const obj = {
+    a: {aaa: 123, bbb: 456},
+};
+const obj1 = {aaa: 123, bbb: 456};
+function aaa(obj) {
+    return obj.aaa;
+}
 
 function main({ type, n }) {
     switch (type) {
-        case 'for iterate':
+        case 'create':
             bench.start();
             for (let i = 0; i < n; i++) {
-                let res = '';
-                for (let i = 0; i < arr.length; i++) {
-                    res += arr[i] + '-' + arr[i];
-                }
+                aaa({aaa: 123, bbb: 456});
             }
             bench.end(n);
             break;
-        case 'map + join':
+        case 'reference obj property':
             bench.start();
             for (let i = 0; i < n; i++) {
-                const res = arr.map(item => item + '-' + item).join('');
+                aaa(obj.a);
             }
             bench.end(n);
             break;
-        case 'reduce':
+        case 'plain reference':
             bench.start();
             for (let i = 0; i < n; i++) {
-                const res = arr.reduce((acc, item) => acc + item + '-' + item, '');
+                aaa(obj1);
             }
             bench.end(n);
             break;
