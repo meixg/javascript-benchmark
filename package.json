@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/meixg/javascript-benchmark/issues"
   },
-  "homepage": "https://github.com/meixg/javascript-benchmark#readme"
+  "homepage": "https://github.com/meixg/javascript-benchmark#readme",
+  "dependencies": {
+    "san": "^3.11.3"
+  }
 }
