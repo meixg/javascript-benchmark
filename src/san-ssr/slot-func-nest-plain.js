@@ -1,11 +1,12 @@
 const common = require('../utils/common');
 const renderPlain = require('./example/plain/component');
 const renderNested = require('./example/nested/component');
+const renderPlainGlobalCtx = require('./example/plain-global-ctx/component');
 const Component = require('./example/component');
 
 const bench = common.createBenchmark(main, {
     n: [1e3],
-    type: ['plain', 'nested']
+    type: ['plain', 'nested', 'plain-global-ctx']
 });
 
 const data = [];
@@ -27,6 +28,14 @@ function main({ type, n }) {
             bench.start();
             for (let i = 0; i < n; i++) {
                 const res = renderNested({list: data}, {ComponentClass: Component});
+                // console.log(res);
+            }
+            bench.end(n);
+            break;
+        case 'plain-global-ctx':
+            bench.start();
+            for (let i = 0; i < n; i++) {
+                const res = renderPlainGlobalCtx({list: data}, {ComponentClass: Component});
                 // console.log(res);
             }
             bench.end(n);
