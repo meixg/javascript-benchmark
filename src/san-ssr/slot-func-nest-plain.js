@@ -1,7 +1,7 @@
 const common = require('../utils/common');
-const renderPlain = require('../example/plain/component');
-const renderNested = require('../example/nested/component');
-const Component = require('../example/component');
+const renderPlain = require('./example/plain/component');
+const renderNested = require('./example/nested/component');
+const Component = require('./example/component');
 
 const bench = common.createBenchmark(main, {
     n: [1e3],
