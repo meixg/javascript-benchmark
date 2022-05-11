@@ -478,7 +478,7 @@ sanSSRResolver.setRenderer("0", (function () {
     function setGlobalCtx(c) {
         ctx = c;
     }
-    childSlots = {}
+    let childSlots = {}
     childSlots[""] = function  (parentCtx, data) {
         let html = ""
         let compData = ctx.data
@@ -489,7 +489,7 @@ sanSSRResolver.setRenderer("0", (function () {
         return html;
     };
 
-    childSlots1 = {}
+    let childSlots1 = {}
     childSlots1[""] = function  (parentCtx, data) {
         let html = ""
         html += "<!--s-slot-->";
